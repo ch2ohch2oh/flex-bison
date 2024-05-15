@@ -71,10 +71,11 @@
 
 #include <stdio.h>
 
+// Must declare the two below. Otherwise warnings.
 int yylex(void);
 void yyerror(char* s);
 
-#line 78 "calc.tab.c"
+#line 79 "calc.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -503,8 +504,8 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    16,    16,    17,    20,    21,    22,    25,    26,    27,
-      30,    31
+       0,    17,    17,    18,    21,    22,    23,    26,    27,    28,
+      31,    32
 };
 #endif
 
@@ -1069,43 +1070,43 @@ yyreduce:
   switch (yyn)
     {
   case 3: /* calclist: calclist exp EOL  */
-#line 17 "calc.y"
+#line 18 "calc.y"
                     { printf("= %d\n", yyvsp[-1]); }
-#line 1075 "calc.tab.c"
+#line 1076 "calc.tab.c"
     break;
 
   case 5: /* exp: exp ADD factor  */
-#line 21 "calc.y"
+#line 22 "calc.y"
                   { yyval = yyvsp[-2] + yyvsp[0]; }
-#line 1081 "calc.tab.c"
+#line 1082 "calc.tab.c"
     break;
 
   case 6: /* exp: exp SUB factor  */
-#line 22 "calc.y"
+#line 23 "calc.y"
                   { yyval = yyvsp[-2] - yyvsp[0]; }
-#line 1087 "calc.tab.c"
+#line 1088 "calc.tab.c"
     break;
 
   case 8: /* factor: factor MUL term  */
-#line 26 "calc.y"
+#line 27 "calc.y"
                    { yyval = yyvsp[-2] * yyvsp[0]; }
-#line 1093 "calc.tab.c"
+#line 1094 "calc.tab.c"
     break;
 
   case 9: /* factor: factor DIV term  */
-#line 27 "calc.y"
+#line 28 "calc.y"
                    { yyval = yyvsp[-2] / yyvsp[0]; }
-#line 1099 "calc.tab.c"
+#line 1100 "calc.tab.c"
     break;
 
   case 11: /* term: ABS term  */
-#line 31 "calc.y"
+#line 32 "calc.y"
               { yyval = yyvsp[0] >= 0? yyvsp[0] : - yyvsp[0]; }
-#line 1105 "calc.tab.c"
+#line 1106 "calc.tab.c"
     break;
 
 
-#line 1109 "calc.tab.c"
+#line 1110 "calc.tab.c"
 
       default: break;
     }
@@ -1298,7 +1299,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 34 "calc.y"
+#line 35 "calc.y"
 
 
 int main(int argc, char **argv)
